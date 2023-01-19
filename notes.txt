@@ -1,0 +1,9 @@
+Node version: 18.13.0 (lts)
+
+Weird things
+    -   @latest when bringing in next.js will give you some additional folders
+        that make it confusing. And the one line install for next tailwind only 
+        loads up typescript extensions
+            -     install these dependencies seperately, and don't use the @latest next
+            -     set up your files.associations in your 'settings JSON user preferences'
+                  https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss#recommended-vs-code-settings
