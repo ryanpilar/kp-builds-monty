@@ -39,7 +39,7 @@
     width: 200px;
     height: 100px;
     background-size: contain;
-    z-index: 0;
+    z-index: 3;
     transform: translateX(290%);
     animation: cloud_two 18.5s ease-in .9s infinite;
 }
