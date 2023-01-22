@@ -5,7 +5,7 @@ const BlogItem = (props) => {
     const router = useRouter()
 
     const onNavigate = () => {
-        router.push(`/${slug}`)                                                // handles client-side transitions, useful for cases where next/link is not enough
+        router.push(`/${slug}`)                                                
     
     }
   const { title, image, description, details, slug } = props;

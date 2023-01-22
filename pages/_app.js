@@ -3,6 +3,10 @@ import { Fragment } from "react";
 
 import Navigation from "../components/navigation/Navigation";
 
+import { SessionProvider } from "next-auth/react"
+
+
+
 /**
 
     in order to use our navigation component, we need to import fragments,
@@ -12,10 +16,11 @@ import Navigation from "../components/navigation/Navigation";
 export default function App({ Component, pageProps }) {
   return (
 
-    <Fragment>
+    // specify the session property, and you get the session property from the pageProps
+    <SessionProvider SessionProvider session={pageProps.session}>
       <Navigation />
       <Component {...pageProps} />
-    </Fragment>
+    </SessionProvider>
 
   );
 }

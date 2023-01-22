@@ -5,8 +5,8 @@
 //    @route   Post /blog-entry/add
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-import connectMongo from "../../../utils/connectMongo";
-import Blog from "../../../models/testBlogModel";
+import connectMongo from "../../../mongo/connectMongo";
+import Blog from "../../../models/BlogPost";
 
 const addEntry = async (req, res) => {
 

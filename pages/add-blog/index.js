@@ -1,8 +1,12 @@
-/**
-    A page component that displays a blog form and sends the req.body off to
-    a specified endpoint
-      -  POST request to: /api/blog-entry/add
- */
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//    @desc    add-blog with formik form, page component
+//              - Formik forms for validation and UX
+//              - submit a POST request to /api/blog-entry/add with the data that is contained in the Formik Form
+//
+//    @route   GET /register
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 import Head from "next/head";
 import BlogForm from "../../components/blogForm/BlogForm";
@@ -14,12 +18,14 @@ import styles from "../../styles/Home.module.css";
 
 function AddBlog() {
 
-  // allows for the rerouting to home
+  // Allows for the rerouting, reloading and redirecting of pages
   const router = useRouter();
 
+
+  // SUBMIT FORM - post request to api
   const addBlogHandler = async (data) => {
     try {
-      // submit form
+      
       const response = await fetch("/api/blog-entry/add", {
         method: "POST",
         // data needs to be sent as JSON
@@ -29,16 +35,13 @@ function AddBlog() {
         },
       });
 
-      const serverData = await response.json();
-      console.log("serverData", serverData);
-
       // reload after response is successfully fetched
       router.reload();
 
     } catch {
       console.error(err);
       res.json({
-        msg: "error with adding blog entry via addBlogHandler()",
+        msg: "error with adding blog entry with addBlogHandler()",
       });
     }
   };

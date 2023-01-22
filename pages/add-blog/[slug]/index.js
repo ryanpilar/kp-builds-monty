@@ -1,9 +1,20 @@
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//    @desc    Add-Blog, page component
+//              - 
+//              -  
+//
+//    @route   GET /add-blog
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 import Head from "next/head";
 import Image from "next/image";
 
 import styles from "../../../styles/Home.module.css";
 
-import connectMongo from "../../../utils/connectMongo";
+import connectMongo from "../../../mongo/connectMongo";
 
 const BlogDetails = () => {
   return (
@@ -32,34 +43,33 @@ const BlogDetails = () => {
 
  */
 
-export async function getStaticPaths() {
-  // connect to mongoDB
-  const connectionString =
-    "mongodb+srv://kp-ryanpilar:tBdotMyNQVZP84lc@cluster0.lvq17yt.mongodb.net/?retryWrites=true&w=majority";
-  // const client = await MongoClient.connect(connectionString);
-  const client = await connectMongo()
+// export async function getStaticPaths() {
+//   // connect to mongoDB
 
-  const blogPostCollection = client.db().collection("posts");
+//   // const client = await MongoClient.connect(connectionString);
+//   const client = await connectMongo()
 
-  // lets return the path as to then tell next js to do its thing
-  // find an empty object, and return its slug = 1, which means return only the id
-  const blogPosts = await blogPostCollection.find({}, { slug: 1 }).toArray();
-  client.close();
-  // now, return the paths key which needs to be an array pf param objects
-  // 'slug' needs to be the same as what you call it in your project
-  return {
-    paths: blogPosts.map(({ slug }) => ({
-      params: { slug },
-    })),
-    // when any paths that are not returned in getstaticpaths, nextjs will automatically return a 404 page
-    fallback: false,
-  };
-}
+//   const blogPostCollection = client.db().collection("posts");
 
-// in this page we hae dynamic route, and in order to do that we use:
-export async function getStaticProps() {
-  //  this page is a dynamic page, and in order for next.js to prerender
-  //  the contents of this page, we need to inform it before hand the indivual path
-}
+//   // lets return the path as to then tell next js to do its thing
+//   // find an empty object, and return its slug = 1, which means return only the id
+//   const blogPosts = await blogPostCollection.find({}, { slug: 1 }).toArray();
+//   client.close();
+//   // now, return the paths key which needs to be an array pf param objects
+//   // 'slug' needs to be the same as what you call it in your project
+//   return {
+//     paths: blogPosts.map(({ slug }) => ({
+//       params: { slug },
+//     })),
+//     // when any paths that are not returned in getstaticpaths, nextjs will automatically return a 404 page
+//     fallback: false,
+//   };
+// }
+
+// // in this page we hae dynamic route, and in order to do that we use:
+// export async function getStaticProps() {
+//   //  this page is a dynamic page, and in order for next.js to prerender
+//   //  the contents of this page, we need to inform it before hand the indivual path
+// }
 
 export default BlogDetails;

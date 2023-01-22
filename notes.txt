@@ -7,3 +7,8 @@ Weird things
             -     install these dependencies seperately, and don't use the @latest next
             -     set up your files.associations in your 'settings JSON user preferences'
                   https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss#recommended-vs-code-settings
+
+    -   on deploy to netlify i had to :
+        -   go into my next.config.js file and include: target: 'serverless'
+        -   got to the netlify UI and install Next.js Runtime 
+        -   source: https://www.netlify.com/blog/2021/03/16/try-the-new-essential-next.js-plugin-now-with-auto-install/
