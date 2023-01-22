@@ -15,7 +15,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { useFormik } from "formik";
-import { registerValidate } from "../lib/formikValidate"; // formik form conditionals that were manually coded
+import { registerValidate } from "../lib/formikValidation"; // formik form conditionals that were manually coded
 
 import Layout from "../layouts/layout";
 import styles from "../styles/Form.module.css";
