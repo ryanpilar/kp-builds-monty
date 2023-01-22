@@ -68,7 +68,7 @@ const AuthorizedUser = ({ session, handleSignOut }) => {
       </Head>
 
       <main className="container mx-auto text-center py-20">
-        <h3 className="text-4xl font-bold">Authorized User </h3>
+        <h3 className="text-4xl font-bold">Welcome! You are an Authorized User </h3>
 
         <div className="details">
           <h5 className="">{session.user.name}</h5>
